@@ -29,6 +29,7 @@ namespace pandemic
         bool has_stations(City c);
         void add_stations(City c);
         bool has_cure(Color c);
+        bool has_discovered_cure(City c);
         static Color city_color(City c);
         void cured_city(Color c);
     };

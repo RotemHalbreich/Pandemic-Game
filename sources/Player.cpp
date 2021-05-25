@@ -171,7 +171,7 @@ namespace pandemic
 
     Player &Player::treat(City c)
     {
-        if (_board.has_cure(colors.at(c)))
+        if (_board.has_cure(colors_of_cities.at(c)))
         {
             _board[c] = 0;
         }

@@ -1,4 +1,5 @@
 #include "Board.hpp"
+
 #include <unordered_map>
 #include <unordered_set>
 
@@ -88,7 +89,19 @@ namespace pandemic
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     Color Board::city_color(City c)
     {
-        return colors.at(c);
+        return colors_of_cities.at(c);
+    }
+
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    bool Board::has_discovered_cure(City c)
+    {
+        return _cures.contains(city_color(c));
+    }
+
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Color Board::city_color(City c)
+    {
+        return colors_of_cities.at(c);
     }
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
