@@ -5,6 +5,7 @@ using namespace std;
 namespace pandemic
 {
     //Can discover a cure using only 'n' cards instead of '5'
+
     Player &Scientist::discover_cure(Color c)
     {
         if (_board.has_cure(c))
@@ -32,10 +33,12 @@ namespace pandemic
                     {
                         break;
                     }
+
                     if (Board::city_color(*itr) == c)
                     {
                         itr = _cards.erase(itr);
                     }
+
                     else
                     {
                         itr++;

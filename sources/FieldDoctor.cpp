@@ -4,8 +4,8 @@ using namespace std;
 
 namespace pandemic
 {
-    //Can treat a disease in the city he's in and in all it's neighbors cities on the map
-    //without tossing a card
+    //Can treat a disease in the city he's in and in all it's neighbors cities on the map without tossing a card
+
     Player &FieldDoctor::treat(City c)
     {
         if (_board[c] == 0)
@@ -25,7 +25,6 @@ namespace pandemic
             }
             return *this;
         }
-        
         throw invalid_argument("There is no such card in your hand!");
     }
 }

@@ -12,28 +12,9 @@ namespace pandemic
         Black
     };
 
-    // std::string color_to_string(Color color)
-    // {
-    //     switch (color)
-    //     {
-    //     case Yellow:
-    //         return "Yellow";
-    //         break;
-
-    //     case Red:
-    //         return "Red";
-    //         break;
-
-    //     case Blue:
-    //         return "Blue";
-    //         break;
-
-    //     case Black:
-    //         return "Black";
-    //         break;
-    //     }
-    // }
-
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //a map that holds all the cities by name and their colors
+    
     const std::unordered_map<City, Color> colors_of_cities{
         {City::Algiers, Color::Black},
         {City::Atlanta, Color::Blue},

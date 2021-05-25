@@ -7,6 +7,7 @@ const int FIVE_CARDS = 5;
 namespace pandemic
 {
     //Can discover a cure in any city, even if there isn't a research station in it
+    
     Player &Researcher::discover_cure(Color c)
     {
         if (_board.has_cure(c))
@@ -43,11 +44,11 @@ namespace pandemic
                 _board.cured_city(c);
             }
         }
+
         else
         {
             throw invalid_argument("You don't have enough cards!");
         }
-        
         return *this;
     }
 }

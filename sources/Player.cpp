@@ -95,8 +95,8 @@ Player &Player::fly_shuttle(City c)
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//building a RS in a city we're on, using it's card
-//a city has one RS max, if we try to build another RS -> nothing happens
+//building a research station in a city we're on, using it's card
+//a city has one research station max, if we try to build another research station -> nothing happens
 
 Player &Player::build()
 {
@@ -119,7 +119,7 @@ Player &Player::build()
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //discover a cure to a disease of a specific color,
-//must be in a city with a RS and toss 5 cards from the same color
+//must be in a city with a research station and toss 5 cards from the same color
 //any disease has only one cure, if already got cure -> do nothing.
 
 Player &Player::discover_cure(Color c)
@@ -191,7 +191,7 @@ Player &Player::treat(City c)
     {
         _board[c] = 0;
     }
-    
+
     else
     {
         _board[c]--;
@@ -211,6 +211,8 @@ Player &Player::take_card(City c)
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//removes all the cards from the player's hand
+
 Player &Player::remove_cards()
 {
     _cards.clear();

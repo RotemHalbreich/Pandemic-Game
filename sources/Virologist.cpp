@@ -5,6 +5,7 @@ using namespace std;
 namespace pandemic
 {
     //Can treat any city even if she's not in it, after tossing it's card
+    
     Player &Virologist::treat(City c)
     {
         if (_board[c] == 0)
@@ -19,11 +20,13 @@ namespace pandemic
                 _cards.erase(c);
                 _board[c] = 0;
             }
+
             else
             {
                 _cards.erase(c);
                 _board[c]--;
             }
+            
             return *this;
         }
         throw invalid_argument("There is no such card in your hand!");

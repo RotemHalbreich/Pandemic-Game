@@ -7,6 +7,7 @@ const int FIVE_CARDS = 5;
 namespace pandemic
 {
     //Can discover a cure with any '5' cards (the color isn't relevant)
+
     Player &GeneSplicer::discover_cure(Color c)
     {
         if (_board.has_cure(c))
@@ -31,10 +32,12 @@ namespace pandemic
                 itr = _cards.erase(itr);
             }
         }
+
         else
         {
             throw invalid_argument("You don't have enough cards from the same colors!");
         }
+        
         _board.cured_city(c);
         return *this;
     }

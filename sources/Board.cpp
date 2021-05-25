@@ -4,7 +4,7 @@ using namespace std;
 using namespace pandemic;
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//a map that holds all the connections of every city with it's neighbors as a set.
+//a map that holds all the connections of every city with it's neighbors as a set
 
 static unordered_map<City, unordered_set<City>> connected_cities{
     {Algiers, {Madrid, Paris, Istanbul, Cairo}},
@@ -57,12 +57,16 @@ static unordered_map<City, unordered_set<City>> connected_cities{
     {Washington, {Atlanta, Miami, Montreal, NewYork}}};
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//holds the level of a disease (number of cubes) in each city as an int
+
 int &Board::operator[](City c)
 {
     return _disease_cubes[c];
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//prints the game board
+
 std::ostream &pandemic::operator<<(std::ostream &os, const Board &b)
 {
     return os;
@@ -100,15 +104,19 @@ void Board::remove_stations()
 }
 
 /**
-     * MY FUNCTIONS:
-     */
+* MY FUNCTIONS:
+*/
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//checks who are the neighbor cities of a current city
+
 bool Board::is_connected(City &src, City &dest)
 {
-    return connected_cities.at(src).contains(dest);
+    return connected_cities.at(src).contains(dest) || connected_cities.at(dest).contains(src);
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//removes the disease cubes from a city
+
 void Board::remove_cubes(City c)
 {
     if (_disease_cubes.contains(c))
@@ -118,36 +126,48 @@ void Board::remove_cubes(City c)
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//checks whether a city has a research station
+
 bool Board::has_stations(City c)
 {
     return _research_stations.contains(c);
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//adds a research station to a city
+
 void Board::add_stations(City c)
 {
     _research_stations.insert(c);
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//checks whether a disease has a cure
+
 bool Board::has_cure(Color c)
 {
     return _cures.contains(c);
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//checks the color of a city
+
 Color Board::city_color(City c)
 {
     return colors_of_cities.at(c);
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//checks whether a city has a cure for a disease by it's color
+
 bool Board::has_discovered_cure(City c)
 {
     return _cures.contains(city_color(c));
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//marking a city as a cured city
+
 void Board::cured_city(Color c)
 {
     _cures.insert(c);
