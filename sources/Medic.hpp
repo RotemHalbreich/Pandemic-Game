@@ -11,5 +11,6 @@ namespace pandemic
     public:
         Medic(Board &b, City c) : Player(b, c, "Medic") {}
         Player &treat(City c);
+        void medic_visit();
     };
 }

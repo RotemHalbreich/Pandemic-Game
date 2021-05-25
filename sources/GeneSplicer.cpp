@@ -21,7 +21,7 @@ namespace pandemic
 
         if (_cards.size() >= FIVE_CARDS)
         {
-            int counter = 0;
+            int counter = 1;
             for (auto itr = _cards.begin(); itr != _cards.end(); counter++)
             {
                 if (counter == FIVE_CARDS)

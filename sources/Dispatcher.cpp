@@ -9,18 +9,21 @@ namespace pandemic
     {
         if (_current_city == c)
         {
-            throw invalid_argument("The Dispacher is already in this city!");
+            throw invalid_argument("You're already in this city!");
         }
 
         if (_board.has_stations(_current_city))
         {
             _current_city = c;
+            return *this;
         }
 
-        else
+        if (_cards.contains(c))
         {
-            throw invalid_argument("The Dispacher can't use fly direct because there's no research station in the current city!");
+            _cards.erase(c);
+            _current_city = c;
+            return *this;
         }
-        return *this;
+        throw invalid_argument("The Dispacher can't use fly direct because there's no research station in the current city!");
     }
 }

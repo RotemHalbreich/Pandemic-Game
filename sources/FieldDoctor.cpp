@@ -13,11 +13,7 @@ namespace pandemic
             throw invalid_argument("There are already 0 disease cubes in this city!");
         }
 
-        if (c != _current_city && !Board::is_connected(_current_city, c))
-        {
-            throw invalid_argument("There is no such card in your hand!");
-        }
-        else
+        if (c == _current_city || Board::is_connected(_current_city, c) || Board::is_connected(c, _current_city))
         {
             if (!_board.has_discovered_cure(c))
             {
@@ -29,5 +25,7 @@ namespace pandemic
             }
             return *this;
         }
+        
+        throw invalid_argument("There is no such card in your hand!");
     }
 }

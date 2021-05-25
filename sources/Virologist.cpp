@@ -12,23 +12,20 @@ namespace pandemic
             throw invalid_argument("There are already 0 disease cubes in this city!");
         }
 
-        if (c != _current_city && !_cards.contains(c))
+        if (c == _current_city || _cards.contains(c))
         {
-            throw invalid_argument("There is no such card in your hand!");
-        }
-        else
-        {
-            if (!_board.has_discovered_cure(c))
+            if (_board.has_discovered_cure(c))
             {
-                _board[c]--;
                 _cards.erase(c);
+                _board[c] = 0;
             }
             else
             {
-                _board[c] = 0;
                 _cards.erase(c);
+                _board[c]--;
             }
             return *this;
         }
+        throw invalid_argument("There is no such card in your hand!");
     }
 }

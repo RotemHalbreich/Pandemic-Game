@@ -1,6 +1,8 @@
 #pragma once
+
 #include "City.hpp"
 #include "Color.hpp"
+
 #include <iostream>
 #include <unordered_map>
 #include <unordered_set>

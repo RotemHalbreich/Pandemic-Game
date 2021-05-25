@@ -20,4 +20,12 @@ namespace pandemic
         _board[c] = 0;
         return *this;
     }
+
+    void Medic::medic_visit()
+    {
+        if (_board.has_discovered_cure(_current_city))
+        {
+            _board[_current_city] = 0;
+        }
+    }
 }

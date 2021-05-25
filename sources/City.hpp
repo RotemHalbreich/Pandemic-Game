@@ -56,7 +56,7 @@ namespace pandemic
         Washington
     };
 
-    std::string city_to_string(City c)
+    inline std::string city_to_string(City c)
     {
         switch (c)
         {

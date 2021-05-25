@@ -12,11 +12,7 @@ namespace pandemic
             return *this;
         }
 
-        if (!_board.has_stations(_current_city))
-        {
-            throw invalid_argument("This city doesn't have a research station!");
-        }
-        else
+        if (_board.has_stations(_current_city))
         {
             int num_of_cards = 0;
             for (const auto itr : _cards)
@@ -29,6 +25,7 @@ namespace pandemic
 
             if (num_of_cards >= _n)
             {
+                num_of_cards = 1;
                 for (auto itr = _cards.begin(); itr != _cards.end(); num_of_cards++)
                 {
                     if (num_of_cards == _n)
@@ -50,6 +47,10 @@ namespace pandemic
             {
                 throw invalid_argument("You don't have enough cards!");
             }
+        }
+        else
+        {
+            throw invalid_argument("This city doesn't have a research station!");
         }
         return *this;
     }

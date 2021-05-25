@@ -25,6 +25,7 @@ namespace pandemic
 
         if (num_of_cards >= FIVE_CARDS)
         {
+            num_of_cards = 1;
             for (auto itr = _cards.begin(); itr != _cards.end(); num_of_cards++)
             {
                 if (num_of_cards == FIVE_CARDS)
