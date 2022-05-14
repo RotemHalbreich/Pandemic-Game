@@ -1,3 +1,4 @@
+![pandemic_map](https://user-images.githubusercontent.com/66558110/168427986-8b8ba8a3-c661-45bd-acf4-336653b387af.jpg)
 <div dir="rtl" lang="he">
 
 # פאנדמיק - שלב ב
